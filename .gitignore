@@ -1,0 +1,36 @@
+# Arquivos e diretórios padrão a serem ignorados em projetos Python
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Logs e arquivos temporários
+*.log
+*.sqlite3
+*.swp
+*.swo
+*~
+
+# Diretório de ambiente virtual (se você estiver usando um)
+venv/
+env/
+
+# Dependências geradas
+__pycache__/
+dist/
+build/
+*.egg-info/
+
+# Arquivos de ambiente e configuração
+.env
+.env.*
+.env.local
+.env.development
+.env.test
+.env.production
+.envrc
+
+# Arquivos de cache de dependências
+.pip-accel/
+pip-wheel-metadata/
