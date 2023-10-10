@@ -13,10 +13,14 @@ class AppModel:
     def resetarConfiguracoes(self):
         self.exibirGraficoResultado = True
         self.exibirTabelaResultado = True
+        self.exibirAlertasDeRisco = True
         self.granularidadeDoResultado = self.OPCOES_GRANULARIDADE[0]
 
     def alternarVisualizacaoDoGraficoResultado(self):
         self.exibirGraficoResultado = not self.exibirGraficoResultado
+
+    def alternarVisualizacaoDosAlertasDeRisco(self):
+        self.exibirAlertasDeRisco = not self.exibirAlertasDeRisco
 
     def alternarVisualizacaoDaTabelaResultado(self):
         self.exibirTabelaResultado = not self.exibirTabelaResultado

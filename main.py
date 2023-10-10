@@ -1,6 +1,8 @@
 from services.OpenWeatherService.openWeatherService import OpenWeatherService
 from controllers.WeatherController.weatherController import WeatherController
+from controllers.AlertWeatherController.alertWeatherController import AlertWeatherController
 from views.WeatherView.weatherView import WeatherView
+from views.PopUpView.popUpView import PopUpView
 from views.TerminalView.terminalView import TerminalView
 from models.appModel import AppModel
 
@@ -40,6 +42,12 @@ def executarFluxoPorDia(appConfigs, weatherControl):
         weatherPlots = WeatherView(resultadoDataFrame)
         weatherPlots.gerarGraficoDeBarras()
 
+    if appConfigs.exibirAlertasDeRisco:
+        alertWeatherControl = AlertWeatherController()
+        alertas = alertWeatherControl.encontrarTemperaturasDeRisco(resultadoDataFrame)
+        popUp = PopUpView()
+        popUp.exibirListaDeMessageBoxOkCancel(alertas)
+
 def executarFluxoPor3Horas(appConfigs, weatherControl): 
     resultadoDataFrame = weatherControl.gerarDataFrameTemperaturasOpenWeatherPor3Horas()
     print("Previsão do Tempo para " + appConfigs.cidadePesquisada + ":\n\n")
@@ -50,6 +58,12 @@ def executarFluxoPor3Horas(appConfigs, weatherControl):
     if appConfigs.exibirGraficoResultado:
         weatherPlots = WeatherView(resultadoDataFrame)
         weatherPlots.gerarGraficoDeLinhas()
+
+    if appConfigs.exibirAlertasDeRisco:
+        alertWeatherControl = AlertWeatherController()
+        alertas = alertWeatherControl.encontrarTemperaturasDeRisco(resultadoDataFrame)
+        popUp = PopUpView()
+        popUp.exibirListaDeMessageBoxOkCancel(alertas)
 
 
 if __name__ == "__main__":

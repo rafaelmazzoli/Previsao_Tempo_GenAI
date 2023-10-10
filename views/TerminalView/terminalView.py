@@ -52,7 +52,7 @@ class TerminalView:
             print("Menu Configurações:")
             print("1. Visualização do Resultado")
             print("2. Granularidade do Resultado")
-            print("9. Resetar Configurações Padrões")
+            print("\n9. Resetar Configurações Padrões")
             print("\n0. Voltar")
             escolha = input("Escolha uma opção: ")
             continua = self._validarEscolha(menu, escolha)
@@ -63,6 +63,7 @@ class TerminalView:
         menu = {
             '1': self.appConfigs.alternarVisualizacaoDoGraficoResultado,
             '2': self.appConfigs.alternarVisualizacaoDaTabelaResultado,
+            '3': self.appConfigs.alternarVisualizacaoDosAlertasDeRisco,
             '0': None
         }
         while True:
@@ -70,6 +71,7 @@ class TerminalView:
             print("Menu Visualização do Resultado:")
             print("1. Gráfico: " + ("Ativo" if self.appConfigs.exibirGraficoResultado else "Inativo"))
             print("2. Tabela: " + ("Ativa" if self.appConfigs.exibirTabelaResultado else "Inativa"))
+            print("3. Alertas de Risco: " + ("Ativo" if self.appConfigs.exibirAlertasDeRisco else "Inativo"))
             print("\n0. Voltar")
             escolha = input("Escolha uma opção: ")
             continua = self._validarEscolha(menu, escolha)
